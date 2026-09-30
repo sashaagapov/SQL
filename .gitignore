@@ -1,0 +1,18 @@
+# Local IDE and OS files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Local connection and environment files
+.env
+.env.*
+!.env.example
+*.log
+
+# Database dumps and local Docker state
+*.bak
+*.dump
+*.mdf
+*.ndf
+*.ldf
