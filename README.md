@@ -1,23 +1,22 @@
 # SQL Coursework
 
-This repository currently contains one Microsoft SQL Server lab: a query that lists departments alongside their faculties and department heads.
+Microsoft SQL Server coursework built around an evolving university database, from base tables through joins, grouping, security, views, functions and stored procedures.
 
-## Query and example result
+## Labs
 
-[Lab 1 SQL script](labs/lab01/USE%20UniversityPerformance%3B.sql) selects `Department`, `Faculty`, and `HeadFullName` from `dbo.Departments` and `dbo.Faculties`. It joins the tables on `d.FacultyId = f.FacultyId` and sorts the output by department name. Because this is an inner join, departments without a matching faculty do not appear.
-
-Illustrative result, assuming a department named *Applied Mathematics* has `FacultyId = 2` and the faculty with `FacultyId = 2` is named *Engineering*:
-
-| Department | Faculty | HeadFullName |
+| Lab | Topic | Main concepts |
 | --- | --- | --- |
-| Applied Mathematics | Engineering | Olena Kovalenko |
+| [Lab 01](labs/lab01/) | Server environment | sqlcmd, metadata, collation |
+| [Lab 02](labs/lab02/) | Database and tables | CREATE DATABASE, primary and foreign keys |
+| [Lab 03](labs/lab03/) | Inserting data | INSERT, database context |
+| [Lab 04](labs/lab04/) | Filtering and changes | WHERE, LIKE, UPDATE, DELETE |
+| [Lab 05](labs/lab05/) | Relationships and joins | CROSS JOIN, LEFT JOIN, RIGHT JOIN |
+| [Lab 06](labs/lab06/) | Security and performance | LOGIN, USER, ROLE, permissions |
+| [Lab 07](labs/lab07/) | Aggregates | AVG, GROUP BY, HAVING |
+| [Lab 08](labs/lab08/) | Database programming | VIEW, functions, procedures |
 
-These names are example data, not rows from a database in this repository. The actual result depends on the contents of `UniversityPerformance`; no database, schema-creation script, or recorded query output is included.
+## Database model
 
-## Run Lab 1
+`UniversityPerformance` connects faculties, departments, groups, students, teachers, disciplines and performance records. The [relationship diagram](labs/lab05/diagram.dbml) covers the first five entities.
 
-1. Connect to Microsoft SQL Server with a client that supports the `GO` batch separator, such as SQL Server Management Studio.
-2. Use an existing `UniversityPerformance` database containing `dbo.Departments` (`Name`, `HeadFullName`, `FacultyId`) and `dbo.Faculties` (`FacultyId`, `Name`).
-3. Open and run the [Lab 1 script](labs/lab01/USE%20UniversityPerformance%3B.sql). The query result appears in your SQL client's results pane.
-
-The script selects the database with `USE` and reads data with `SELECT`; it does not modify table data.
+Scripts target Microsoft SQL Server and T-SQL. Labs 02–08 form a sequence; run setup and mutation scripts only on a fresh coursework database. Seed values are demonstration data, while results labelled as current refer to the existing coursework database.

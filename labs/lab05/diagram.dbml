@@ -1,0 +1,24 @@
+Table Faculties {
+  FacultyId int [pk]
+  Name nvarchar
+}
+Table Departments {
+  DepartmentId int [pk]
+  FacultyId int [ref: > Faculties.FacultyId]
+  Name nvarchar
+}
+Table Groups {
+  GroupId int [pk]
+  DepartmentId int [ref: > Departments.DepartmentId]
+  GroupNumber nvarchar
+}
+Table Students {
+  StudentId int [pk]
+  GroupId int [ref: > Groups.GroupId]
+  FullName nvarchar
+}
+Table Teachers {
+  TeacherId int [pk]
+  DepartmentId int [ref: > Departments.DepartmentId]
+  FullName nvarchar
+}
