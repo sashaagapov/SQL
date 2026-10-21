@@ -1,19 +1,23 @@
-# SQL: лабораторні роботи
+# SQL Coursework
 
-Навчальний репозиторій із матеріалами курсу баз даних. Зараз він містить один SQL-скрипт для Microsoft SQL Server.
+This repository currently contains one Microsoft SQL Server lab: a query that lists departments alongside their faculties and department heads.
 
-## Матеріали
+## Query and example result
 
-| Робота | Що робить скрипт |
-| --- | --- |
-| [Лабораторна 1: запит до кафедр і факультетів](labs/lab01/USE%20UniversityPerformance%3B.sql) | Поєднує таблиці `dbo.Departments` і `dbo.Faculties` за ідентифікатором факультету та сортує записи за назвою кафедри. |
+[Lab 1 SQL script](labs/lab01/USE%20UniversityPerformance%3B.sql) selects `Department`, `Faculty`, and `HeadFullName` from `dbo.Departments` and `dbo.Faculties`. It joins the tables on `d.FacultyId = f.FacultyId` and sorts the output by department name. Because this is an inner join, departments without a matching faculty do not appear.
 
-Запит повертає стовпці `Department` (назва кафедри), `Faculty` (назва факультету) і `HeadFullName` (ПІБ завідувача). Внутрішнє з'єднання `JOIN` включає лише записи з відповідністю в обох таблицях. Конкретні рядки залежать від даних у базі; прикладу результату в репозиторії немає.
+Illustrative result, assuming a department named *Applied Mathematics* has `FacultyId = 2` and the faculty with `FacultyId = 2` is named *Engineering*:
 
-## Як запустити
+| Department | Faculty | HeadFullName |
+| --- | --- | --- |
+| Applied Mathematics | Engineering | Olena Kovalenko |
 
-1. Підключіться до SQL Server у клієнті, що підтримує роздільник пакетів `GO`, наприклад SQL Server Management Studio.
-2. Переконайтеся, що доступна база `UniversityPerformance` з таблицями `dbo.Departments` (`Name`, `HeadFullName`, `FacultyId`) і `dbo.Faculties` (`Id`, `Name`). Схема створення та дані для цієї бази до репозиторію не входять.
-3. Відкрийте [скрипт лабораторної 1](labs/lab01/USE%20UniversityPerformance%3B.sql) і виконайте його. Результат з'явиться у вікні результатів SQL-клієнта.
+These names are example data, not rows from a database in this repository. The actual result depends on the contents of `UniversityPerformance`; no database, schema-creation script, or recorded query output is included.
 
-Скрипт не змінює дані: він обирає базу командою `USE` і виконує `SELECT`. Підключення, облікові дані, локальні бази та дампи не входять до репозиторію.
+## Run Lab 1
+
+1. Connect to Microsoft SQL Server with a client that supports the `GO` batch separator, such as SQL Server Management Studio.
+2. Use an existing `UniversityPerformance` database containing `dbo.Departments` (`Name`, `HeadFullName`, `FacultyId`) and `dbo.Faculties` (`FacultyId`, `Name`).
+3. Open and run the [Lab 1 script](labs/lab01/USE%20UniversityPerformance%3B.sql). The query result appears in your SQL client's results pane.
+
+The script selects the database with `USE` and reads data with `SELECT`; it does not modify table data.
