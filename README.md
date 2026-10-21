@@ -1,11 +1,19 @@
-# SQL
+# SQL: лабораторні роботи
 
-SQL laboratory work and supporting explanations for the database course.
+Навчальний репозиторій із матеріалами курсу баз даних. Зараз він містить один SQL-скрипт для Microsoft SQL Server.
 
-## Structure
+## Матеріали
 
-```text
-labs/lab01/USE UniversityPerformance;.sql
-```
+| Робота | Що робить скрипт |
+| --- | --- |
+| [Лабораторна 1: запит до кафедр і факультетів](labs/lab01/USE%20UniversityPerformance%3B.sql) | Поєднує таблиці `dbo.Departments` і `dbo.Faculties` за ідентифікатором факультету та сортує записи за назвою кафедри. |
 
-The SQL script is intended for SQL Server. Local connection profiles, Docker state, credentials, and database dumps are not part of this repository.
+Запит повертає стовпці `Department` (назва кафедри), `Faculty` (назва факультету) і `HeadFullName` (ПІБ завідувача). Внутрішнє з'єднання `JOIN` включає лише записи з відповідністю в обох таблицях. Конкретні рядки залежать від даних у базі; прикладу результату в репозиторії немає.
+
+## Як запустити
+
+1. Підключіться до SQL Server у клієнті, що підтримує роздільник пакетів `GO`, наприклад SQL Server Management Studio.
+2. Переконайтеся, що доступна база `UniversityPerformance` з таблицями `dbo.Departments` (`Name`, `HeadFullName`, `FacultyId`) і `dbo.Faculties` (`Id`, `Name`). Схема створення та дані для цієї бази до репозиторію не входять.
+3. Відкрийте [скрипт лабораторної 1](labs/lab01/USE%20UniversityPerformance%3B.sql) і виконайте його. Результат з'явиться у вікні результатів SQL-клієнта.
+
+Скрипт не змінює дані: він обирає базу командою `USE` і виконує `SELECT`. Підключення, облікові дані, локальні бази та дампи не входять до репозиторію.
