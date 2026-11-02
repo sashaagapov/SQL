@@ -1,0 +1,4 @@
+@page
+@model AuditModel
+<h1>Performance audit</h1>
+<table><tr><th>Action</th><th>Performance ID</th><th>Old</th><th>New</th><th>Changed</th></tr>@foreach(var x in Model.Rows){<tr><td>@x.Action</td><td>@x.PerformanceId</td><td>@x.OldGrade</td><td>@x.NewGrade</td><td>@x.ChangedAt</td></tr>}</table>

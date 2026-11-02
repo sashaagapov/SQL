@@ -10,6 +10,12 @@ Thumbs.db
 !.env.example
 *.log
 
+# .NET build output and local application settings
+**/bin/
+**/obj/
+appsettings.Local.json
+appsettings.Development.json
+
 # Database dumps and local Docker state
 *.bak
 *.dump

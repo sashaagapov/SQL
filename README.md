@@ -14,9 +14,11 @@ Microsoft SQL Server coursework built around an evolving university database, fr
 | [Lab 06](labs/lab06/) | Security and performance | LOGIN, USER, ROLE, permissions |
 | [Lab 07](labs/lab07/) | Aggregates | AVG, GROUP BY, HAVING |
 | [Lab 08](labs/lab08/) | Database programming | VIEW, functions, procedures |
+| [Lab 09](labs/lab09/) | Triggers and transactions | inserted, deleted, COMMIT, ROLLBACK |
+| [Lab 10](labs/lab10/) | ADO.NET application | Razor Pages, SqlClient, CRUD |
 
 ## Database model
 
 `UniversityPerformance` connects faculties, departments, groups, students, teachers, disciplines and performance records. The [relationship diagram](labs/lab05/diagram.dbml) covers the first five entities.
 
-Scripts target Microsoft SQL Server and T-SQL. Labs 02–08 form a sequence; run setup and mutation scripts only on a fresh coursework database. Seed values are demonstration data, while results labelled as current refer to the existing coursework database.
+Scripts target Microsoft SQL Server and T-SQL. Labs 02–10 form a sequence; run setup and mutation scripts only on a fresh coursework database. Seed values are demonstration data, while results labelled as current refer to the existing coursework database.

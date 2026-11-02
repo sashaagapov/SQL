@@ -1,0 +1,8 @@
+@page
+@model GradesModel
+<h1>Grades</h1>
+<form method="post" asp-page-handler="Add"><label>Student ID <input name="studentId" type="number" required /></label><label>Discipline ID <input name="disciplineId" type="number" required /></label><label>Grade <input name="grade" type="number" min="0" max="100" required /></label><button>Add</button></form>
+<form method="post" asp-page-handler="Update"><label>Performance ID <input name="id" type="number" required /></label><label>New grade <input name="grade" type="number" min="0" max="100" required /></label><button>Update</button></form>
+<form method="post" asp-page-handler="Delete"><label>Performance ID <input name="id" type="number" required /></label><button>Delete</button></form>
+@if(Model.Message is not null){<p>@Model.Message</p>}
+<table><tr><th>ID</th><th>Student</th><th>Discipline</th><th>Grade</th></tr>@foreach(var x in Model.Rows){<tr><td>@x.Id</td><td>@x.Student</td><td>@x.Discipline</td><td>@x.Value</td></tr>}</table>

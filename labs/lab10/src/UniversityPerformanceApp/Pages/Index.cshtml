@@ -1,0 +1,5 @@
+@page
+@model IndexModel
+<h1>UniversityPerformance</h1>
+@if(Model.Error is not null){<p>@Model.Error</p>}else if(Model.Data is not null){<p>Students: @Model.Data.Students | Disciplines: @Model.Data.Disciplines | Grades: @Model.Data.Records | Average: @Model.Data.Average</p>}
+<p><a asp-page="Grades">Grades</a> | <a asp-page="Audit">Audit</a></p>
