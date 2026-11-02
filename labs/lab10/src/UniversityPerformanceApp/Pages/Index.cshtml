@@ -1,5 +1,34 @@
 @page
 @model IndexModel
-<h1>UniversityPerformance</h1>
-@if(Model.Error is not null){<p>@Model.Error</p>}else if(Model.Data is not null){<p>Students: @Model.Data.Students | Disciplines: @Model.Data.Disciplines | Grades: @Model.Data.Records | Average: @Model.Data.Average</p>}
-<p><a asp-page="Grades">Grades</a> | <a asp-page="Audit">Audit</a></p>
+
+@{
+    ViewData["Title"] = "Dashboard";
+}
+
+<h1>University Performance</h1>
+
+@if (Model.Error is not null)
+{
+    <p class="message error">@Model.Error</p>
+}
+else if (Model.Data is not null)
+{
+    <section class="statistics">
+        <article>
+            <strong>@Model.Data.Students</strong>
+            <span>Students</span>
+        </article>
+        <article>
+            <strong>@Model.Data.Disciplines</strong>
+            <span>Disciplines</span>
+        </article>
+        <article>
+            <strong>@Model.Data.Records</strong>
+            <span>Grade records</span>
+        </article>
+        <article>
+            <strong>@Model.Data.Average</strong>
+            <span>Average grade</span>
+        </article>
+    </section>
+}

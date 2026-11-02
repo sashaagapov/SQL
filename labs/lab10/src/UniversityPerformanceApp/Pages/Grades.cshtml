@@ -1,8 +1,83 @@
 @page
 @model GradesModel
+
+@{
+    ViewData["Title"] = "Grades";
+}
+
 <h1>Grades</h1>
-<form method="post" asp-page-handler="Add"><label>Student ID <input name="studentId" type="number" required /></label><label>Discipline ID <input name="disciplineId" type="number" required /></label><label>Grade <input name="grade" type="number" min="0" max="100" required /></label><button>Add</button></form>
-<form method="post" asp-page-handler="Update"><label>Performance ID <input name="id" type="number" required /></label><label>New grade <input name="grade" type="number" min="0" max="100" required /></label><button>Update</button></form>
-<form method="post" asp-page-handler="Delete"><label>Performance ID <input name="id" type="number" required /></label><button>Delete</button></form>
-@if(Model.Message is not null){<p>@Model.Message</p>}
-<table><tr><th>ID</th><th>Student</th><th>Discipline</th><th>Grade</th></tr>@foreach(var x in Model.Rows){<tr><td>@x.Id</td><td>@x.Student</td><td>@x.Discipline</td><td>@x.Value</td></tr>}</table>
+
+<section class="panel">
+    <h2>Add grade</h2>
+
+    <form method="post" asp-page-handler="Add" class="add-grade-form">
+        <label>
+            Student
+            <select name="studentId" required>
+                @foreach (StudentOption student in Model.Students)
+                {
+                    <option value="@student.Id">@student.Name</option>
+                }
+            </select>
+        </label>
+
+        <label>
+            Discipline
+            <select name="disciplineId" required>
+                @foreach (DisciplineOption discipline in Model.Disciplines)
+                {
+                    <option value="@discipline.Id">@discipline.Name</option>
+                }
+            </select>
+        </label>
+
+        <label>
+            Grade
+            <input name="grade" type="number" min="0" max="100" required />
+        </label>
+
+        <button type="submit">Add grade</button>
+    </form>
+</section>
+
+@if (Model.Message is not null)
+{
+    <p class="message">@Model.Message</p>
+}
+
+<section class="panel">
+    <h2>Recorded grades</h2>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Student</th>
+                <th>Discipline</th>
+                <th>Grade</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (Grade grade in Model.Rows)
+            {
+                <tr>
+                    <td>@grade.Student</td>
+                    <td>@grade.Discipline</td>
+                    <td>
+                        <form method="post" asp-page-handler="Update" class="inline-form">
+                            <input name="performanceId" type="hidden" value="@grade.Id" />
+                            <input name="grade" type="number" min="0" max="100" value="@grade.Value" required />
+                            <button type="submit">Save</button>
+                        </form>
+                    </td>
+                    <td>
+                        <form method="post" asp-page-handler="Delete" class="inline-form" onsubmit="return confirm('Delete this grade record?');">
+                            <input name="performanceId" type="hidden" value="@grade.Id" />
+                            <button type="submit" class="danger">Delete</button>
+                        </form>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</section>

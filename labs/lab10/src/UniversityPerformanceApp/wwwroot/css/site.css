@@ -1,0 +1,29 @@
+* { box-sizing: border-box; }
+body { margin: 0; background: #f5f6f7; color: #202428; font-family: Arial, sans-serif; }
+.container { width: min(1080px, calc(100% - 32px)); margin: 0 auto; }
+.site-header { background: #ffffff; border-bottom: 1px solid #dfe3e6; }
+.navigation { display: flex; align-items: center; justify-content: space-between; min-height: 58px; }
+.brand { color: #18212a; font-weight: 700; text-decoration: none; }
+nav { display: flex; gap: 18px; }
+nav a { color: #52606d; text-decoration: none; }
+main { padding: 32px 0 48px; }
+h1 { margin: 0 0 24px; font-size: 28px; }
+h2 { margin: 0 0 16px; font-size: 18px; }
+.statistics { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+.statistics article, .panel { background: #fff; border: 1px solid #dfe3e6; padding: 18px; }
+.statistics strong { display: block; font-size: 24px; margin-bottom: 6px; }
+.statistics span { color: #637381; font-size: 14px; }
+.panel { margin-bottom: 20px; }
+.add-grade-form, .inline-form { display: flex; align-items: end; gap: 12px; }
+.add-grade-form label { display: grid; gap: 6px; color: #52606d; font-size: 14px; }
+input, select, button { font: inherit; }
+input, select { min-height: 34px; border: 1px solid #bcc6cf; border-radius: 3px; padding: 6px 8px; }
+button { min-height: 34px; background: #276749; border: 1px solid #276749; border-radius: 3px; color: #fff; cursor: pointer; padding: 6px 11px; }
+button.danger { background: #b8322c; border-color: #b8322c; }
+table { width: 100%; border-collapse: collapse; }
+th, td { border-bottom: 1px solid #e4e7eb; padding: 10px 8px; text-align: left; }
+th { color: #52606d; font-size: 13px; }
+.action { border-radius: 3px; font-size: 12px; font-weight: 700; padding: 3px 6px; }
+.insert { background: #d7f5e3; color: #17643a; }.update { background: #e5ecff; color: #2d4ea2; }.delete { background: #fee2e2; color: #a61b1b; }
+.message { padding: 10px 12px; background: #fff7d6; border: 1px solid #ead392; }.error { color: #a61b1b; }
+@media (max-width: 700px) { .statistics { grid-template-columns: repeat(2, 1fr); }.add-grade-form { align-items: stretch; flex-direction: column; } .panel { overflow-x: auto; } }

@@ -1,4 +1,36 @@
 @page
 @model AuditModel
+
+@{
+    ViewData["Title"] = "Audit";
+}
+
 <h1>Performance audit</h1>
-<table><tr><th>Action</th><th>Performance ID</th><th>Old</th><th>New</th><th>Changed</th></tr>@foreach(var x in Model.Rows){<tr><td>@x.Action</td><td>@x.PerformanceId</td><td>@x.OldGrade</td><td>@x.NewGrade</td><td>@x.ChangedAt</td></tr>}</table>
+
+<section class="panel">
+    <table>
+        <thead>
+            <tr>
+                <th>Action</th>
+                <th>Record ID</th>
+                <th>Old grade</th>
+                <th>New grade</th>
+                <th>Changed</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (Audit audit in Model.Rows)
+            {
+                <tr>
+                    <td>
+                        <span class="action @audit.Action.ToLowerInvariant()">@audit.Action</span>
+                    </td>
+                    <td>@audit.PerformanceId</td>
+                    <td>@audit.OldGrade</td>
+                    <td>@audit.NewGrade</td>
+                    <td>@audit.ChangedAt</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</section>

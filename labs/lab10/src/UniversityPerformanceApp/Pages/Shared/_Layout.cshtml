@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - University Performance</title>
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+<body>
+    <header class="site-header">
+        <div class="container navigation">
+            <a class="brand" asp-page="/Index">University Performance</a>
+            <nav>
+                <a asp-page="/Index">Dashboard</a>
+                <a asp-page="/Grades">Grades</a>
+                <a asp-page="/Audit">Audit</a>
+            </nav>
+        </div>
+    </header>
+    <main class="container">
+        @RenderBody()
+    </main>
+</body>
+</html>
