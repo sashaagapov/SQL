@@ -8,5 +8,13 @@ Create a database with faculties and departments, identity keys and a foreign ke
 - [Insert initial data](03_seed.sql)
 - [Verify counts](04_verify.sql)
 
+## Verified output
+Running the four scripts in order on a fresh SQL Server 2022 instance with the demonstration seed gives:
+
+| Table | Rows |
+| --- | --- |
+| `dbo.Faculties` | 3 |
+| `dbo.Departments` | 5 |
+
 ## Run
 Run the files in order against a fresh SQL Server database. The table and seed scripts are not repeatable against existing objects or data. The working coursework database has an ID column named `DepartmentId ` with a trailing space and lacks the faculty foreign key; the clean schema here uses `DepartmentId` and defines that relationship.
